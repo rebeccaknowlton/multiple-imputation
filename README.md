@@ -24,3 +24,8 @@ For a more flexible diagnistic tool, we next wanted to train a classifier on the
 Classifiers used include CART, logistic regression, and random forests. Various plots illustrate how the classifiers can identify original data compared to data imputed by a misspecified model. In addition to classifiers trained on original versus duplicated, we also include classifiers to predict missingness in the original dataset for X2 and X3. In general, the flexibility of the random forest model can make quite accurate predictions and visually reveal the failings of the misspecified model, compared to the posterior predictive checks that depended on chosen estimands.
 
 ## Counterfactuals
+
+As I was fitting classifiers to imputed data, I had the idea that counterfactuals could be a useful tool for diagnosing an imputation model. Counterfactual explanations are a method in interpretable ML that ask how the inputs would have had to vary in order to receive a different prediction from the model. Applying this idea to an imputation model, if we can generate a counterfactual explanation that says which variables should change in order to predict that the data point was imputed, that would reveal where the imputation model is possibly misspecified.
+
+The attached slides describe in more detail the method for generating counterfactuals from "Counterfactual Explanations Without Opening the Black Box: Automated Decisions and the GDPR" (Wachter, Mittelstadt & Russell, 2018). The R script implements this method on the Pima dataset. While I didn't have time during the spring 2022 semester to extend this method to the classifiers fit to imputed data, that would be a possible area for future research.
+
